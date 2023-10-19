@@ -1,9 +1,18 @@
-import React from 'react'
-const Search = () => {
+import React, { useState } from 'react'
+const Search = ({setProductName}) => {
+    const [input, setInput] = useState("")
+   
+    const handelChange=(e)=>{
+        setInput(e.target.value);
+        
+        
+    }
     return (
         <div className='searchForm'>
-            <input type="text" placeholder="looking for ..." className='search' />
-            <button className='searchButton'>&#x1F50E;</button>
+            <input type="text" placeholder="looking for ..." value={input} className='search' onChange={handelChange}/>
+            <button className='searchButton' onClick={()=>{setProductName(input);
+            setInput("")
+            }}>&#x1F50E;</button>
         </div>
     )
 }
